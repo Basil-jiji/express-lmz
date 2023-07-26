@@ -6,11 +6,13 @@ const port = 5000;
 
 const app = express();
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('API is Running...!');
 });
 
-app.use('/api/places', placeRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/v1/places', placeRoutes);
+app.use('/api/v1/users', userRoutes);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
